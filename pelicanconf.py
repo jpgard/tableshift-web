@@ -1,6 +1,6 @@
 AUTHOR = 'Josh Gardner'
 SITENAME = 'TableShift'
-SITEURL = 'https://jpgard.github.io/tableshift-web/'
+SITEURL = ''
 
 THEME='simple'
 
