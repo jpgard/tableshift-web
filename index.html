@@ -1,99 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/custom.css" media="screen">
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 
-    <title>TableShift &ndash; TableShift</title>
+        <meta name="author" content="Josh Gardner" />
 
-    <!-- Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-    <!-- Social -->
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="TableShift"/>
-    <meta property="og:description" content=""/>
-    <meta property="og:site_name" content="TableShift" />
-    <meta property="og:url" content="https://jpgard.github.io/tableshift-web/"/>
-    <meta property="og:image" content=""/>
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="TableShift">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:url" content="https://jpgard.github.io/tableshift-web/">
-    <meta name="twitter:image" content="">
+<meta property="og:title" content="TableShift "/>
+<meta property="og:url" content="https://jpgard.github.io/tableshift-web/" />
+<meta property="og:description" content="TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. The package is under active development, as is this website! This site provides example commands to get started using TableShift in the Quickstart, and provides more detailed information about the datasets available in …" />
+<meta property="og:site_name" content="TableShift" />
+<meta property="og:article:author" content="Josh Gardner" />
+<meta name="twitter:title" content="TableShift ">
+<meta name="twitter:description" content="TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. The package is under active development, as is this website! This site provides example commands to get started using TableShift in the Quickstart, and provides more detailed information about the datasets available in …">
 
-    <!-- Feed -->
-    <link rel="alternate" type="application/atom+xml" href="https://jpgard.github.io/tableshift-web/feeds/all.atom.xml" title="TableShift Atom Feed" />
+        <title>TableShift  · TableShift
+</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
-    <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/w3.css">
-    <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/jqcloud.css">
-    <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://jpgard.github.io/tableshift-web/theme/css/pygments-highlight-github.css">
 
-    <!-- Icon -->
 
-    <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://jpgard.github.io/tableshift-web/theme/js/jqcloud.min.js"></script>
-  </head>
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://jpgard.github.io/tableshift-web/"><span class=site-name>TableShift</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://jpgard.github.io/tableshift-web
+                                    >Home</a>
+                                </li>
+                                <li  class="active"><a href="https://jpgard.github.io/tableshift-web/">TableShift</a></li>
+                                <li ><a href="https://jpgard.github.io/tableshift-web/quickstart.html">Quickstart</a></li>
+                                <li ><a href="https://jpgard.github.io/tableshift-web/datasets.html">Datasets</a></li>
+                                <!-- <li ><a href="https://jpgard.github.io/tableshift-web/categories.html">Categories</a></li> -->
+                                <!-- <li ><a href="https://jpgard.github.io/tableshift-web/tags.html">Tags</a></li> -->
+                                <!-- <li ><a href="https://jpgard.github.io/tableshift-web/archives.html">Archives</a></li> -->
+                                <li><form class="navbar-search" action="https://jpgard.github.io/tableshift-web/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="https://jpgard.github.io/tableshift-web/"> TableShift  </a></h1>
+    </header>
+</div>
 
-  <body>
-    <div class="w3-row w3-card w3-white">
-      <header id="header">
-<!--                 <a href="https://jpgard.github.io/tableshift-web" id="header-logo" title="Home">JG</a>
- -->
-        <nav id="header-menu">
-          <ul>
-            <li class="w3-bottombar w3-border-white w3-hover-border-green active"><a href="https://jpgard.github.io/tableshift-web/">TableShift</a></li>
-            <li class="w3-bottombar w3-border-white w3-hover-border-green"><a href="https://jpgard.github.io/tableshift-web/quickstart.html">Quickstart</a></li>
-            <li class="w3-bottombar w3-border-white w3-hover-border-green"><a href="https://jpgard.github.io/tableshift-web/datasets.html">Datasets</a></li>
-          </ul>
-        </nav>
-      </header>
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. </p>
+<p>The package is under active development, as is this website!</p>
+<p>This site provides example commands to get started using TableShift in the Quickstart, and provides more detailed information about the datasets available in TableShift in Datasets.</p>
+<p>If you find an issue with <code>TableShift</code>, please file a GitHub issue in the project <a href="https://github.com/jpgard/tableshift">repo</a>.</p>
+<p>If you find this site or the TableShift software useful, please cite our <a href="TODO">paper</a>.</p>
+            
+
+
+
+
+
+
+
+        </div>
+    </div>
+    </article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
     </div>
 
-
-
-    <br><br><br>
-
-    <article>
-      <header class="w3-container col-main">
-        <h1>TableShift</h1>
-        <div class="post-info">
-          <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
-            
-          </div>
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
         </div>
-      </header>
-
-      <br>
-
-      <div class="col-main w3-container">
-        <section id="content">
-          <p>TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. The package is under active development. If you find an issue, please file a GitHub issue in the project <a href="https://github.com/jpgard/tableshift">repo</a>.</p>
-        </section>
-        
-
-        <br><br><br>
-        
-      </div>
-    </article>
-
-
-    <footer id="footer">
-      <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
-        <span>
-          &copy;
-          Josh Gardner
- | <a href="https://jpgard.github.io/tableshift-web/feeds/all.atom.xml">Atom feed <i class="fa fa-rss" aria-hidden="true"></i></a>        </span>
-      </div>
-    </footer>
+<footer>
 
 
 
-  </body>
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="https://jpgard.github.io/tableshift-web/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
 </html>
