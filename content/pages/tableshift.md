@@ -1,6 +1,7 @@
 Title: TableShift
 page-order: 1
-
+save_as: index.html
+url: index.html
 
 ![Tableshift Logo]({static}/images/tableshift.png)
 
