@@ -3,11 +3,15 @@ page-order: 3
 
 [TOC]
 
-This page describes the benchmark datasets available in TableShift.
+This page describes the benchmark datasets available in TableShift and how to access them.
 
 To see a detailed list of the individual features for each dataset, please refer to the `tableshift.datasets` module.
 
-# Voting
+# Benchmark Datasets
+
+We provide details on each dataset below. For additional information, see our paper.
+
+## Voting
 * Availability: Data Use Agreement (source)
 * Source: American National Election Studies (ANES)
 * Target: Voted in U.S. presidential election
@@ -24,7 +28,7 @@ We use features derived from the ANES Time Series. From the pool of over 500 que
 
 **Domain Shift:** We introduce a domain split by geographic region. We use the ANES Census Region feature, where the out-of-domain region is the region representing the southern United States (AL, AR, DE, D.C., FL, GA, KY, LA, MD, MS, NC, OK, SC,TN, TX, VA, WV). This simulates a study in which voter data is collected in one part of the country, and the goal is to infer voting behavior in another geographic region; this is a common occurence with polling data, particularly during the U.S. primaries, which occur over a period of several weeks at the state level.
 
-# ASSISTments
+## ASSISTments
 * Availability: Public
 * Source: Kaggle
 * Target: Next Answer Correct
@@ -38,7 +42,7 @@ We use features derived from the ANES Time Series. From the pool of over 500 que
 **Distribution Shift:** We partition the datasets by school. Approximately 700 schools are in the training set, and 10 schools are used as the target distribution. This simulates the process of deploying ASSISTments at a new school.
 
 
-# Childhood Lead
+## Childhood Lead
 * Availability: Public
 * Source: National Health and Nutrition Examination Survey (NHANES)
 * Target: Blood lead levels above CDC Blood Level Reference Value
@@ -66,7 +70,7 @@ We use only questionnaire-based NHANES features as the predictors, but use a pre
 
 The training domain is composed of individuals with PIR of at least 1.3; persons with PIR $\leq 1.3$ are in the held-out domain. The threshold of 1.3 is selected based on the PIR categorization used in NHANES, where PIR $\leq$ 1.3 is the lowest level.
 
-# College Scorecard
+## College Scorecard
 * Availability: Public
 * Source: College Scorecard
 * Target: Low Degree Completion Rate
@@ -83,7 +87,7 @@ For this task, our goal is to predict whether an institution has a low completio
 
 **Distribution Shift:** Institutions vary widely in their profiles, student populations, educational approach, and target industries or student pathways. We partition universities according to the \texttt{CCBASIC} variable\footnote{The data dictionary for the College Scorecard is available at \url{https://collegescorecard.ed.gov/assets/CollegeScorecardDataDictionary.xlsx}}, which gives the Carnegie Classification (Basic) [(cite)](https://carnegieclassifications.acenet.edu). This classification uses a framework developed by the Carnegie Commission on Higher Education in the early 1970s to support its research program. Partitioning our data according to this variable measures the robustness over institutional subpopulations, and is thus a form of subpopulation shift. We use the following set of institutions as the target domain (all other institutional types are in the training domain): 'Special Focus Institutions--Other special-focus institutions', 'Special Focus Institutions--Theological seminaries, Bible colleges, and other faith-related institutions', "Associate's--Private For-profit 4-year Primarily Associate's", 'Baccalaureate Colleges--Diverse Fields', 'Special Focus Institutions--Schools of art, music, and design', "Associate's--Private Not-for-profit", "Baccalaureate/Associate's Colleges", "Master's Colleges and Universities (larger programs)". Exact definitions of each institution class are available via the Carnegie Commission on Higher Education [(cite)](https://carnegieclassifications.acenet.edu).
 
-# Diabetes
+## Diabetes
 * Availability: Public
 * Source: Behavioral Risk Factor Surveillance System (BRFSS)
 * Target: Diabetes diagnosis
@@ -104,7 +108,7 @@ For the Diabetes prediction task, we use a set of features related to several kn
 
 In order to simulate the domain gap induced by these real-world differences in study vs. deployment populations, we partition the benchmark task by race/ethnicity. We use ``White non-Hispanic''-identified individuals as the training domain, and all other race/ethnicity groups as the target domain.
 
-# Food Stamps
+## Food Stamps
 * Availability: Public
 * Source: American Community Survey (via folktables)
 * Target: Food stamp recipiency in past year for households with child
@@ -119,7 +123,7 @@ In order to simulate the domain gap induced by these real-world differences in s
 
 This split parallels the case where a system is trained on a subset of states in a specific geographic area (perhaps in a localized study that draws participants or respondents from some geographic areas, but excludes other areas), and then applied to another. It also parallels the case where there is an interest in simulating the effect of a policy change. Finally, it mirrors the challenge of predicting an effect of a policy outcome (food stamps eligibility/recipiency) where differences in the underlying policy (different programs or eligibility across states) are a confounder. 
 
-# HELOC
+## HELOC
 * Availability: Data Use Agreement (source)
 * Source: FICO
 * Target: Repayment of Home Equity Line of Credit loan
@@ -138,7 +142,7 @@ In addition to desiring accurate credit risk predictions for their overall utili
 
 For this task, we partition the dataset based on the `External Risk Estimate', a feature in the dataset corresponding to the risk estimate assigned to an applicant by a third-party service. This estimate was identified in the original FICO explanable ML challenge  [(cite)](https://community.fico.com/s/blog-post/a5Q2E0000001czyUAA/fico1670). We use individuals with a high external risk estimate (where ``high'' estimate is defined as exceeding an external risk estimate of 63, a threshold identified in the original challenge-winning model linked above) as the training domain, and individuals with estimate $\leq 63$ as the held-out domain.
 
-# Hospital Readmission
+## Hospital Readmission
 * Availability: Public
 * Source: UCI
 * Target: 30-day readmission of diabetic hospital patients
@@ -157,7 +161,7 @@ The data contains such attributes as patient number, race, gender, age, admissio
 
 We use the ``admission source'' as the domain split for TableShift. There are 21 distinct admission sources in the dataset, including ``transfer from a hospital'', ``physician referral'', etc. After conducting a sweep over various held-out values, we use ``emergency room'' as the held-out domain split. This matches a potential scenario where a model is constructed using a variety of admission sources, but a patient from a novel source is added; it is also possible e.g. that data from emergent patients could not be collected when training a readmission model. We note that this domain split provides 20 unique training subdomains (the other admission sources), which is the largest $|\Dtr|$ in TableShift. 
 
-# Hypertension
+## Hypertension
 * Availability: Public
 * Source: Behavioral Risk Factor Surveillance System (BRFSS)
 * Target: Hypertension diagnosis for high-risk age (50+)
@@ -170,7 +174,7 @@ We use the ``admission source'' as the domain split for TableShift. There are 21
 
 **Distribution Shift:** We use BMI category as the domain splitting variable. Individuals with BMI identified as ``overweight'' or ``obese'' are in the held-out domain, and those identified as ``underweight'' or ``normal weight'' are in the training domain. This simulates a model being deployed under subpopulation shift, where the target population has different (higher) BMI than the training population.
 
-# ICU Length of Stay
+## ICU Length of Stay
 * Availability: Data Use Agreement (source)
 * Source: MIMIC-iii via MIMIC-Extract
 * Target: Length of stay >= 3 hrs in ICU
@@ -192,7 +196,7 @@ The resulting dataset contains approximately $24,000$ observations.
 
 **Distribution Shift:** We split the domains by health insurance type. We train on patients with all insurance types except Medicare, and use patients with Medicare insurance as the target domain.
 
-# ICU Mortality
+## ICU Mortality
 * Availability: Data Use Agreement (source)
 * Source: MIMIC-iii via MIMIC-Extract
 * Target: ICU patient expires in hospital during current visit
@@ -208,7 +212,7 @@ We note that in this task, we are predicting \textit{hospital} morality (that th
 **Distribution Shift:** We split the domains by health insurance type. We train on patients with all insurance types except $\{$ Medicare, Medicaid $\}$ and use patients with $\{$ Medicare, Medicaid $\}$ insurance as the target domain.
 
 
-# Income
+## Income
 * Availability: Public
 * Source: American Community Survey (via folktables)
 * Target: Income >= 56k for employed adults
@@ -222,7 +226,7 @@ We note that in this task, we are predicting \textit{hospital} morality (that th
 
 **Distribution Shift:** Income patterns can vary in many ways. Here, we focus on domain shift at the \textit{regional} level. We use the same splitting variable (US Census Region) described in Task \ref{task:food-stamps}. However, for the income prediction task, we use New England (Northeast region) as the held-out domain.
 
-# Public Health Insurance
+## Public Health Insurance
 * Availability: Public
 * Source: American Community Survey (via folktables)
 * Target: Coverage of non-Medicare eligible low-income individuals
@@ -237,7 +241,7 @@ We note that in this task, we are predicting \textit{hospital} morality (that th
 
 For this task, the holdout domain $\Dte$ consists of persons with disabilities; the training domain $\Dtr$ consists of persons who do not have disabilities. This simulates a situation where data collection practices excluded disabled persons, potentially through the factors described above.
 
-# Sepsis
+## Sepsis
 * Availability: Public
 * Source: Physionet
 * Target: Sepsis onset within next 6hrs for hospital patients
@@ -253,7 +257,7 @@ algorithms for the early detection of sepsis from clinical data. The dataset is 
 
 **Distribution Shift:** We explored multiple domain shifts for this dataset; we note that, in particular, splitting domains by \textit{hospital} did \emph{not} lead to a shift gap for tuned baseline models (although there is a third, held-out hospital that was used in the original challenge for this dataset, it is not publicly available and is not part of the TableShift benchmark). Instead, we use ``length of stay'' as a domain shift variable. We bifurcate the dataset based on how long a patient has been in the ICU, with patients having been in ICU for $\leq 47$ hours in the training domain, and patients having been in ICU more than 47 hours in the test domain. This matches a scenario where a medical model is trained only on observed stays of a fixed duration (no more than two full days), but then used beyond its initial observation window to predict sepsis in patients with longer stays. We note that length of stay of 47 hours corresponds to the 80th percentile of the data for that feature.
 
-# Unemployment
+## Unemployment
 * Availability: Public
 * Source: American Community Survey (via folktables)
 * Target: Unemployment for non-social security-eligible adults
@@ -266,3 +270,28 @@ algorithms for the early detection of sepsis from clinical data. The dataset is 
 
 **Distribution Shift:** Many factors are known to be related to unemployment. We focus on a form of subpopulation shift, and use \textit{education level} as the domain split. We use individuals with educational attainment of GED (high school diploma equivalent) or higher as the training population $\Dtr$, and individuals without high school-level education as $\Dte$. This simulates a survey collection with a biased sample that systematically excludes such persons.
 
+# Accessing The Datasets
+
+All datasets in TableShift are either public, or have open credentialized access (for example, when human subjects training or a data use agreement is required to access the data). Most of the datasets (10 of the 15) are public. 
+
+The table below summarizes how to gain access to each dataset. Note that datasets marked 'Public' require no action to access; they can be used in TableShift out of the box. For the other datasets, follow the link to gain access.
+
+Some datasets require downloading files in order to use them in TableShift; the TableShift API will provide instructions on what data is required and where to place the data when you run a caching or training job with that dataset.
+
+| Dataset                 | String Identifier         | Availability                                                                                       | Source                                                                                                                 |
+|-------------------------|---------------------------|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Voting                  | `anes`                    | Data Use Agreement ([source](https://electionstudies.org))                                         | [American National Election Studies (ANES)](https://electionstudies.org)                                               |
+| ASSISTments             | `assistments`             | Public                                                                                             | [Kaggle](https://www.kaggle.com/datasets/nicolaswattiez/skillbuilder-data-2009-2010)                                   |
+| Childhood Lead          | `nhanes_lead`             | Public                                                                                             | [National Health and Nutrition Examination Survey (NHANES)](https://www.cdc.gov/nchs/nhanes/index.htm)                 |
+| College Scorecard       | `college_scorecard`       | Public                                                                                             | [College Scorecard](http://collegescorecard.ed.gov)                                                                    |
+| Diabetes                | `brfss_diabetes`          | Public                                                                                             | [Behavioral Risk Factor Surveillance System (BRFSS)](https://www.cdc.gov/brfss/index.html)                             |
+| Food Stamps             | `acsfoodstamps`           | Public                                                                                             | [American Community Survey](https://www.census.gov/programs-surveys/acs) (via [folktables](http://folktables.org)      |
+| HELOC                   | `heloc`                   | Data Use Agreement ([source](https://community.fico.com/s/explainable-machine-learning-challenge)) | [FICO](https://community.fico.com/s/explainable-machine-learning-challenge)                                            |
+| Hospital Readmission    | `diabetes_readmission`    | Public                                                                                             | [UCI](https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008)                           |
+| Hypertension            | `brfss_blood_pressure`    | Public                                                                                             | [Behavioral Risk Factor Surveillance System (BRFSS)](https://www.cdc.gov/brfss/index.html)                             |
+| ICU Length of Stay      | `mimic_extract_los_3`     | Data Use Agreement ([source](https://mimic.mit.edu/docs/gettingstarted/))                          | [MIMIC-iii](https://physionet.org/content/mimiciii/) via [MIMIC-Extract](https://github.com/MLforHealth/MIMIC_Extract) |
+| ICU Mortality           | `mimic_extract_mort_hosp` | Data Use Agreement ([source](https://mimic.mit.edu/docs/gettingstarted/))                          | [MIMIC-iii](https://physionet.org/content/mimiciii/) via [MIMIC-Extract](https://github.com/MLforHealth/MIMIC_Extract) |
+| Income                  | `acsincome`               | Public                                                                                             | [American Community Survey](https://www.census.gov/programs-surveys/acs) (via [folktables](http://folktables.org)      |
+| Public Health Insurance | `acspubcov`               | Public                                                                                             | [American Community Survey](https://www.census.gov/programs-surveys/acs) (via [folktables](http://folktables.org)      |
+| Sepsis                  | `physionet`               | Public                                                                                             | [Physionet](https://physionet.org/content/challenge-2019/)                                                             |
+| Unemployment            | `acsunemployment`         | Public                                                                                             | [American Community Survey](https://www.census.gov/programs-surveys/acs) (via [folktables](http://folktables.org)      |

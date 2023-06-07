@@ -17,11 +17,11 @@
 
 <meta property="og:title" content="Datasets "/>
 <meta property="og:url" content="https://jpgard.github.io/tableshift-web/datasets.html" />
-<meta property="og:description" content="This page describes the benchmark datasets available in TableShift. To see a detailed list of the individual features for each dataset, please refer to the tableshift.datasets module. Voting¶ Availability: Data Use Agreement (source) Source: American National Election Studies (ANES) Target: Voted in U.S. presidential election Shift: Geographic Region …" />
+<meta property="og:description" content="This page describes the benchmark datasets available in TableShift and how to access them. To see a detailed list of the individual features for each dataset, please refer to the tableshift.datasets module. Benchmark Datasets¶ We provide details on each dataset below. For additional information, see our paper. Voting¶ Availability …" />
 <meta property="og:site_name" content="TableShift" />
 <meta property="og:article:author" content="Josh Gardner" />
 <meta name="twitter:title" content="Datasets ">
-<meta name="twitter:description" content="This page describes the benchmark datasets available in TableShift. To see a detailed list of the individual features for each dataset, please refer to the tableshift.datasets module. Voting¶ Availability: Data Use Agreement (source) Source: American National Election Studies (ANES) Target: Voted in U.S. presidential election Shift: Geographic Region …">
+<meta name="twitter:description" content="This page describes the benchmark datasets available in TableShift and how to access them. To see a detailed list of the individual features for each dataset, please refer to the tableshift.datasets module. Benchmark Datasets¶ We provide details on each dataset below. For additional information, see our paper. Voting¶ Availability …">
 
         <title>Datasets  · TableShift
 </title>
@@ -53,6 +53,7 @@
                                 <li ><a href="https://jpgard.github.io/tableshift-web/index.html">TableShift</a></li>
                                 <li ><a href="https://jpgard.github.io/tableshift-web/quickstart.html">Quickstart</a></li>
                                 <li  class="active"><a href="https://jpgard.github.io/tableshift-web/datasets.html">Datasets</a></li>
+                                <li ><a href="https://jpgard.github.io/tableshift-web/faq.html">FAQ</a></li>
                                 <!-- <li ><a href="https://jpgard.github.io/tableshift-web/categories.html">Categories</a></li> -->
                                 <!-- <li ><a href="https://jpgard.github.io/tableshift-web/tags.html">Tags</a></li> -->
                                 <!-- <li ><a href="https://jpgard.github.io/tableshift-web/archives.html">Archives</a></li> -->
@@ -79,6 +80,7 @@
         <h4>Contents</h4>
         <div class="toc">
 <ul>
+<li><a href="#benchmark-datasets">Benchmark Datasets</a><ul>
 <li><a href="#voting">Voting</a></li>
 <li><a href="#assistments">ASSISTments</a></li>
 <li><a href="#childhood-lead">Childhood Lead</a></li>
@@ -95,15 +97,20 @@
 <li><a href="#sepsis">Sepsis</a></li>
 <li><a href="#unemployment">Unemployment</a></li>
 </ul>
+</li>
+<li><a href="#accessing-the-datasets">Accessing The Datasets</a></li>
+</ul>
 </div>
         </nav>
     </div>
     <div class="span8 article-content">
 
             
-<p>This page describes the benchmark datasets available in TableShift.</p>
+<p>This page describes the benchmark datasets available in TableShift and how to access them.</p>
 <p>To see a detailed list of the individual features for each dataset, please refer to the <code>tableshift.datasets</code> module.</p>
-<h1 id="voting">Voting<a class="headerlink" href="#voting" title="Permanent link">¶</a></h1>
+<h1 id="benchmark-datasets">Benchmark Datasets<a class="headerlink" href="#benchmark-datasets" title="Permanent link">¶</a></h1>
+<p>We provide details on each dataset below. For additional information, see our paper.</p>
+<h2 id="voting">Voting<a class="headerlink" href="#voting" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Data Use Agreement (source)</li>
 <li>Source: American National Election Studies (ANES)</li>
@@ -116,7 +123,7 @@
 <p><strong>Data Source:</strong> We use data from the American National Election Studies (ANES) <a href="https://electionstudies.org/">(cite)</a>. Since 1948, ANES has conducted surveys, usually administered as in-person interviews, during most years of national elections. This series of studies, known as the ANES ``Time Series,'' constitutes a pre-election interview and a post-election interview during years of Presidential elections, along with other data sources. Topics cover voting behavior and the elections, together with questions on public opinion and attitudes.</p>
 <p>We use features derived from the ANES Time Series. From the pool of over 500 questions in the ANES Time Series, we extract a set of features related to Americans' voting behavior, including their social and political attitudes, opinions about elected leaders, and media consumption habits.</p>
 <p><strong>Domain Shift:</strong> We introduce a domain split by geographic region. We use the ANES Census Region feature, where the out-of-domain region is the region representing the southern United States (AL, AR, DE, D.C., FL, GA, KY, LA, MD, MS, NC, OK, SC,TN, TX, VA, WV). This simulates a study in which voter data is collected in one part of the country, and the goal is to infer voting behavior in another geographic region; this is a common occurence with polling data, particularly during the U.S. primaries, which occur over a period of several weeks at the state level.</p>
-<h1 id="assistments">ASSISTments<a class="headerlink" href="#assistments" title="Permanent link">¶</a></h1>
+<h2 id="assistments">ASSISTments<a class="headerlink" href="#assistments" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: Kaggle</li>
@@ -127,7 +134,7 @@
 <p><strong>Background:</strong> Machine learning systems are increasingly being adopted in digital learning tools for students of all ages. The ASSISTments tutoring platform <a href="https://new.assistments.org">(cite)</a> is a free, web-based, data-driven tutoring platform for students in grades 3-12. As of 2020, ASSISTments has been used by approximately 60,000 students with over 12 million problems solved \cite{metz2020assistments}. ASSISTments also periodically releases open-source data snapshots from their platform to support educational research.</p>
 <p><strong>Data Source:</strong> We use the open-source ASSISTments 2012-2013 dataset. This is a dataset from school year 2012-2013 which contains submission-level features (each row in the dataset represents one submission by a student attempting to answer a problem on the ASSISTments tutoring platform). In addition to containing student-, problem-, and school-level features, the dataset also contains affect predictions for students based on an experimental affect detector implemented in ASSISTments. (These affect predictions are intended to be useful in identifying affective states such as boredom, confusion, frustration, and engaged problem-solving behavior).</p>
 <p><strong>Distribution Shift:</strong> We partition the datasets by school. Approximately 700 schools are in the training set, and 10 schools are used as the target distribution. This simulates the process of deploying ASSISTments at a new school.</p>
-<h1 id="childhood-lead">Childhood Lead<a class="headerlink" href="#childhood-lead" title="Permanent link">¶</a></h1>
+<h2 id="childhood-lead">Childhood Lead<a class="headerlink" href="#childhood-lead" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: National Health and Nutrition Examination Survey (NHANES)</li>
@@ -145,7 +152,7 @@
 <p>We use only questionnaire-based NHANES features as the predictors, but use a prediction target from the NHANES' lab-based component. This simulates the development of a screening questionnaire to predict blood lead levels.</p>
 <p><strong>Distribution Shift:</strong> We use poverty as a domain-splitting variable. Children from low-income households and those who live in housing built before 1978 are at the greatest risk of lead exposure <a href="https://www.cdc.gov/nceh/lead/prevention/populations.htm">(cite)</a>. However, due to factors mentioned above, impoverished populations can be less likely to be included in medical studies, including those that may involve in-person visits for blood laboratory testing, which is the primary method for lead exposure detection. We use the poverty-income ratio (PIR) measurement in NHANES. The PIR is calculated by dividing total annual family (or individual) income by the poverty guidelines specific to the survey year. The Department of Health and Human Services (HHS) poverty guidelines are used as the poverty measure to calculate this ratio. These guidelines are issued each year, in the Federal Register, for determining financial eligibility for certain federal programs, such as Head Start, Supplemental Nutrition Assistance Program (SNAP), Special Supplemental Nutrition Program for Women, Infants, and Children (WIC), and the National School Lunch Program. The poverty guidelines vary by family size and geographic location (with different guidelines for the 48 contiguous states and the District of Columbia; Alaska; and Hawaii). </p>
 <p>The training domain is composed of individuals with PIR of at least 1.3; persons with PIR $\leq 1.3$ are in the held-out domain. The threshold of 1.3 is selected based on the PIR categorization used in NHANES, where PIR $\leq$ 1.3 is the lowest level.</p>
-<h1 id="college-scorecard">College Scorecard<a class="headerlink" href="#college-scorecard" title="Permanent link">¶</a></h1>
+<h2 id="college-scorecard">College Scorecard<a class="headerlink" href="#college-scorecard" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: College Scorecard</li>
@@ -158,7 +165,7 @@
 <p>For this task, our goal is to predict whether an institution has a low completion rate, based on other characteristics of that institution. While the definition of a ``low'' completion rate is ultimately subjective and context-dependent, we use a thredhold of 50%, which is approximately equivalent to the median graduate rate across the institutions in the dataset. We use the completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion/6 years).</p>
 <p><strong>Data Source:</strong> We use the College Scorecard <a href="https://collegescorecard.ed.gov">(cite)</a>. The College Scorecard is an institution-level dataset compiled by the U.S. Department of Education from 1996-present. The College scorecard includes detailed institutional factors, including information about each institutions' student population, course offerings, and outcomes.</p>
 <p><strong>Distribution Shift:</strong> Institutions vary widely in their profiles, student populations, educational approach, and target industries or student pathways. We partition universities according to the \texttt{CCBASIC} variable\footnote{The data dictionary for the College Scorecard is available at \url{https://collegescorecard.ed.gov/assets/CollegeScorecardDataDictionary.xlsx}}, which gives the Carnegie Classification (Basic) <a href="https://carnegieclassifications.acenet.edu">(cite)</a>. This classification uses a framework developed by the Carnegie Commission on Higher Education in the early 1970s to support its research program. Partitioning our data according to this variable measures the robustness over institutional subpopulations, and is thus a form of subpopulation shift. We use the following set of institutions as the target domain (all other institutional types are in the training domain): 'Special Focus Institutions--Other special-focus institutions', 'Special Focus Institutions--Theological seminaries, Bible colleges, and other faith-related institutions', "Associate's--Private For-profit 4-year Primarily Associate's", 'Baccalaureate Colleges--Diverse Fields', 'Special Focus Institutions--Schools of art, music, and design', "Associate's--Private Not-for-profit", "Baccalaureate/Associate's Colleges", "Master's Colleges and Universities (larger programs)". Exact definitions of each institution class are available via the Carnegie Commission on Higher Education <a href="https://carnegieclassifications.acenet.edu">(cite)</a>.</p>
-<h1 id="diabetes">Diabetes<a class="headerlink" href="#diabetes" title="Permanent link">¶</a></h1>
+<h2 id="diabetes">Diabetes<a class="headerlink" href="#diabetes" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: Behavioral Risk Factor Surveillance System (BRFSS)</li>
@@ -173,7 +180,7 @@
 <p>For the Diabetes prediction task, we use a set of features related to several known indicators for diabetes derived from \citet{xie2019peer}. These risk factors are general physical health, high cholesterol, BMI/obesity, smoking, the presence of other chronic health conditions (stroke, coronary heart diseas), diet, alcohol consumption, exercise, household income, marital status, time since last checkup, education level, health care coverage, and mental health. For each risk factor, we extract a set of relevant features from the BRFSS foxed core and rotating core questionnaires. We also use a shared set of demographic indicators (race, sex, state, survey year, and a question related to income level). The prediction target is a binary indicator for whether the respondent has ever been told they have diabetes.</p>
 <p><strong>Distribution Shift:</strong> While diabetes affects a large fraction of the overall population, diabetes risk varies according to several demographic factors. One such factor is race/ethnicity \cite{hippisley2017development, cdcnational22}, with all other race-ethnicity groups reported in the 2022 CDC National Diabetes Statistics Report displaying higher risk than `White non-Hispanic' individuals\cite{cdcnational22}. Compounding this issue, it has been widely acknowledged that health studiy populations tend to be biased toward white European-Americans \cite{corbie2004minority, oh2015diversity, scien2018, jacewiczwhite2016}. As a result, these studies have tended to focus on risk factors affecting white populations at the expense of identifying risk factors for nonwhite populations \cite{jacewiczwhite2016}, despite distinct differences in how these populations are affected by various disease risk factors, differences in individuals' genetic factors, and differences in how they respond to medication across racial and ethnic populations. This disparity is a contributing factor to race-based disparities in treatment for diabetes \cite{chin1998diabetes}.</p>
 <p>In order to simulate the domain gap induced by these real-world differences in study vs. deployment populations, we partition the benchmark task by race/ethnicity. We use ``White non-Hispanic''-identified individuals as the training domain, and all other race/ethnicity groups as the target domain.</p>
-<h1 id="food-stamps">Food Stamps<a class="headerlink" href="#food-stamps" title="Permanent link">¶</a></h1>
+<h2 id="food-stamps">Food Stamps<a class="headerlink" href="#food-stamps" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: American Community Survey (via folktables)</li>
@@ -185,7 +192,7 @@
 <p><strong>Data Source:</strong> We use person-level data from the American Community Survey (ACS) <a href="https://www.census.gov/programs-surveys/acs/about.html">(cite)</a>. We filter the data for low-income adults aged 18-62 (i.e. selecting only adults below the social security eligibility age) in households with at least one child in the household. We use an income threshold of \$30000 based on the U.S. poverty threshold for a family with one child.</p>
 <p><strong>Distribution Shift:</strong> In the United States, food stamps programs are managed at the state level. We apply domain shift over states, at the \textit{regional} level. Specifically, we use the ACS census region as the split. The ACS includes 10 regions, which are: Puerto Rico;  New England (Northeast region); Middle Atlantic (Northeast region); East North Central (Midwest region); West North Central (Midwest region); South Atlantic (South region); East South Central (South region); West South Central (South Region); Mountain (West region); Pacific (West region). We use East South Central (South region) as the holdout domain for this task.</p>
 <p>This split parallels the case where a system is trained on a subset of states in a specific geographic area (perhaps in a localized study that draws participants or respondents from some geographic areas, but excludes other areas), and then applied to another. It also parallels the case where there is an interest in simulating the effect of a policy change. Finally, it mirrors the challenge of predicting an effect of a policy outcome (food stamps eligibility/recipiency) where differences in the underlying policy (different programs or eligibility across states) are a confounder. </p>
-<h1 id="heloc">HELOC<a class="headerlink" href="#heloc" title="Permanent link">¶</a></h1>
+<h2 id="heloc">HELOC<a class="headerlink" href="#heloc" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Data Use Agreement (source)</li>
 <li>Source: FICO</li>
@@ -199,7 +206,7 @@
 <p><strong>Data Source:</strong> We use the dataset from the FICO Commmunity Explainable AI Challenge <a href="https://community.fico.com/s/explainable-machine-learning-challenge">(cite)</a>, an open-source dataset containing features derived from anonymized credit bureau data. The binary prediction target is an indicator for whether a consumer was 90 days past due or worse at least once over a period of 24 months from when the credit account was opened. The features represent various aspects of an applicant's existing financial profile, including recent financial activity, number of various transactions and credit inquiries, credit balance, and number of delinquent accounts.</p>
 <p><strong>Distribution Shift:</strong> It is widely acknowledged that the dominant approach to credit scoring using financial profiles can unintentionally discriminate against historically marginalized groups (credit bureau data do not include explicit information about race \cite{urban2022credit}). For example, since FICO scores are based on payment history and credit use and many marginalized groups in the United States have lower or less reliable incomes, these marginalized groups can suffer from systematically lower credit scores \cite{leonhart2021credit, newswire2021credit, austin2012good, urban2022credit}; this has been referred to as the ``credit gap'' \cite{matthews2021creditgap, choi2019explaining}. In particular, debt and savings level play a role in credit scores and can systematically disadvantage Black and Hispanic applicants, even when demographic data are not formally used in the credit rating process \cite{leonhart2021credit, urban2022credit}.</p>
 <p>For this task, we partition the dataset based on the `External Risk Estimate', a feature in the dataset corresponding to the risk estimate assigned to an applicant by a third-party service. This estimate was identified in the original FICO explanable ML challenge  <a href="https://community.fico.com/s/blog-post/a5Q2E0000001czyUAA/fico1670">(cite)</a>. We use individuals with a high external risk estimate (where ``high'' estimate is defined as exceeding an external risk estimate of 63, a threshold identified in the original challenge-winning model linked above) as the training domain, and individuals with estimate $\leq 63$ as the held-out domain.</p>
-<h1 id="hospital-readmission">Hospital Readmission<a class="headerlink" href="#hospital-readmission" title="Permanent link">¶</a></h1>
+<h2 id="hospital-readmission">Hospital Readmission<a class="headerlink" href="#hospital-readmission" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: UCI</li>
@@ -213,7 +220,7 @@
 <p>The data contains such attributes as patient number, race, gender, age, admission type, time in hospital, medical specialty of admitting physician, number of lab test performed, HbA1c test result, diagnosis, number of medication, diabetic medications, number of outpatient, inpatient, and emergency visits in the year before the hospitalization, etc. We use the full set of features in the initial dataset, which is described in \cite{strack2014impact}.</p>
 <p><strong>Distribution Shift:</strong> Patients can be (re)admitted to hospitals from a variety of sources. The source of a patient admission canbe correlated with many demographic and other risk factors known to be related to health outcomes (e.g. race, income level, etc.). </p>
 <p>We use the <code>admission source'' as the domain split for TableShift. There are 21 distinct admission sources in the dataset, including</code>transfer from a hospital'', <code>physician referral'', etc. After conducting a sweep over various held-out values, we use</code>emergency room'' as the held-out domain split. This matches a potential scenario where a model is constructed using a variety of admission sources, but a patient from a novel source is added; it is also possible e.g. that data from emergent patients could not be collected when training a readmission model. We note that this domain split provides 20 unique training subdomains (the other admission sources), which is the largest $|\Dtr|$ in TableShift. </p>
-<h1 id="hypertension">Hypertension<a class="headerlink" href="#hypertension" title="Permanent link">¶</a></h1>
+<h2 id="hypertension">Hypertension<a class="headerlink" href="#hypertension" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: Behavioral Risk Factor Surveillance System (BRFSS)</li>
@@ -224,7 +231,7 @@
 <p><strong>Background:</strong> Hypertension, or  systolic blood pressure (typically systolic pressure 130 mm Hg or higher or diastolic 80 or higher) affects nearly half of Americans \cite{ahafacts17}. Hypertension is sometimes called a ``silent killer'' because in most cases, there are no obvious symptoms of hypertension \cite{ahafacts17}; this would make an accurate at-risk model of hypertension useful. When left untreated, hypertension is associated with the strongest evidence for causation of all risk factors for heart attack and other cardiovascular disease \cite{fuchs2020high}. Hypertension also increases the risk of stroke, kidney damage, vision loss, insulin resistance, and other adverse outcomes \cite{ahathreats22}. While existing tools have attempted to predict blood pressure without the use of a cuff (the gold-standard measurement of blood pressure), these tools are still significantly less accurate (see e.g. \cite{misra2016blood, ftc2016settle}), and there is an ongoing need for effective blood pressure measurement.</p>
 <p><strong>Data Source:</strong> We use BRFSS as the raw data source, as described in Task \ref{task:brfss-diabetes} above. However, for the hypertension prediction task, we use features related to the following set of risk factors for hypertension via \cite{nhlbi2022causes}: Age, family history and genetics, other medical conditions (e.g. diabetes, various forms of cancer), race/ethnicity, sex, and social and economic factors (income, employment status). We collect all survey questions related to these risk factors and use them as the predictors for this task, along with a shared set of demographic indicators (race, sex, state, survey year, and a question related to income level).</p>
 <p><strong>Distribution Shift:</strong> We use BMI category as the domain splitting variable. Individuals with BMI identified as <code>overweight'' or</code>obese'' are in the held-out domain, and those identified as <code>underweight'' or</code>normal weight'' are in the training domain. This simulates a model being deployed under subpopulation shift, where the target population has different (higher) BMI than the training population.</p>
-<h1 id="icu-length-of-stay">ICU Length of Stay<a class="headerlink" href="#icu-length-of-stay" title="Permanent link">¶</a></h1>
+<h2 id="icu-length-of-stay">ICU Length of Stay<a class="headerlink" href="#icu-length-of-stay" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Data Use Agreement (source)</li>
 <li>Source: MIMIC-iii via MIMIC-Extract</li>
@@ -240,7 +247,7 @@ unit (ICU) patient stays at Beth Israel Deaconess Medical Center in Boston, USA.
 <p>MIMIC-extract is designed by EHR domain experts with clinical validity (of data) and relevance (of prediction tasks) in mind. In addition to the filtering described above, MIMIC-extract's pipeline includes steps to standardize units of measurement, detect and correct outliers, and select a curated set of features that reduce data missingness in the preprocessed data; for details on the steps taken by the original authors to achieve this, see \cite{wang2020mimic}. We use the preprocessed version of MIMIC-extract made available by the authors \footnote{The publicly-accessible dataset (which requires credentialed MIMIC-III access through PhysioNet due to privacy restrictions) is described at \url{https://github.com/MLforHealth/MIMIC_Extract}}. This includes the static demographic variables, alongside the time-varying vitals and labs described in \cite{johnson2016mimic}. Because event he preprocessed data contains missing values, we use the authors' default methods for handling missing data.</p>
 <p>The resulting dataset contains approximately $24,000$ observations.</p>
 <p><strong>Distribution Shift:</strong> We split the domains by health insurance type. We train on patients with all insurance types except Medicare, and use patients with Medicare insurance as the target domain.</p>
-<h1 id="icu-mortality">ICU Mortality<a class="headerlink" href="#icu-mortality" title="Permanent link">¶</a></h1>
+<h2 id="icu-mortality">ICU Mortality<a class="headerlink" href="#icu-mortality" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Data Use Agreement (source)</li>
 <li>Source: MIMIC-iii via MIMIC-Extract</li>
@@ -252,7 +259,7 @@ unit (ICU) patient stays at Beth Israel Deaconess Medical Center in Boston, USA.
 <p>We note that in this task, we are predicting \textit{hospital} morality (that the patient dies at any point during this visit, even if they are discharged from the ICU to another unit in the hospital). Hospital mortality events are distinct from (and a superset of) ICU mortality events. As mentioned above, the importance of this prediction task for real-world clinical care is underscored by the many previous works addressing this prediction topic (see e.g. \cite{harutyunyan2019multitask, purushotham2018benchmarking, wang2020mimic}.</p>
 <p><strong>Data Source:</strong> This task uses the same data source and feature set from MIMIC-extract described above in \S \ref{task:ICU-LOS}.</p>
 <p><strong>Distribution Shift:</strong> We split the domains by health insurance type. We train on patients with all insurance types except ${$ Medicare, Medicaid $}$ and use patients with ${$ Medicare, Medicaid $}$ insurance as the target domain.</p>
-<h1 id="income">Income<a class="headerlink" href="#income" title="Permanent link">¶</a></h1>
+<h2 id="income">Income<a class="headerlink" href="#income" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: American Community Survey (via folktables)</li>
@@ -264,7 +271,7 @@ unit (ICU) patient stays at Beth Israel Deaconess Medical Center in Boston, USA.
 <p><strong>Data Source:</strong>  We use person-level data from the American Community Survey (ACS), as described in Task \ref{task:food-stamps}. However, for the income prediction task, we use different filtering. We use the filtering described in \cite{ding2021retiring}, which filters for adults aged at least 16 years old, 
  who report working more than zero hours in the past month with reported income at least $ \$100.00 $. We use an income threshold of $ \$56,000$, which is the median income, as in \cite{gardner2022subgroup}.</p>
 <p><strong>Distribution Shift:</strong> Income patterns can vary in many ways. Here, we focus on domain shift at the \textit{regional} level. We use the same splitting variable (US Census Region) described in Task \ref{task:food-stamps}. However, for the income prediction task, we use New England (Northeast region) as the held-out domain.</p>
-<h1 id="public-health-insurance">Public Health Insurance<a class="headerlink" href="#public-health-insurance" title="Permanent link">¶</a></h1>
+<h2 id="public-health-insurance">Public Health Insurance<a class="headerlink" href="#public-health-insurance" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: American Community Survey (via folktables)</li>
@@ -276,7 +283,7 @@ unit (ICU) patient stays at Beth Israel Deaconess Medical Center in Boston, USA.
 <p><strong>Data Source:</strong> We use person-level data from the American Community Survey (ACS), as described in Task \ref{task:food-stamps}. However, for this task, we filter the data to include only low-income individuals (those with income less than $ \$ 30,000$) who are below the age of 65 (at which age all persons in the United States are covered by Medicare). This is the same filtering used in \cite{ding2021retiring, gardner2022subgroup}.</p>
 <p><strong>Distribution Shift:</strong> Many factors can influence individuals' ability to access or utilize health insurance and healthcare services. These include spoken language skills, mobility (whether an individual has recently relocated), education, ease of obtaining services, and discriminatory practices among providers \cite{national2018health}. We focus on \emph{disability status}, as this is a widely-known factor in obtaining access to adequate health care \cite{national2018health}. Disability is also a particularly realistic factor in that disability status is likely to contribute to nonresponse to certain forms of data collection for many tabular data sources (including the four methods used to collect the ACS data: internet, mail, telephone, and in-person interviews) that can disadvantage persons with certain disabilities and decrease likelihood of participation or cause them to be excluded from study population.</p>
 <p>For this task, the holdout domain $\Dte$ consists of persons with disabilities; the training domain $\Dtr$ consists of persons who do not have disabilities. This simulates a situation where data collection practices excluded disabled persons, potentially through the factors described above.</p>
-<h1 id="sepsis">Sepsis<a class="headerlink" href="#sepsis" title="Permanent link">¶</a></h1>
+<h2 id="sepsis">Sepsis<a class="headerlink" href="#sepsis" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: Physionet</li>
@@ -289,7 +296,7 @@ unit (ICU) patient stays at Beth Israel Deaconess Medical Center in Boston, USA.
 <p><strong>Data Source:</strong> We use the data source from the PhysioNet/Computing in Cardiology Challenge \cite{reyna2019early}, which was designed by clinicians and other healthcare experts to facilitate the development of automated, open-source
 algorithms for the early detection of sepsis from clinical data. The dataset is derived from ICU patient records for over $60,000$ patients from two hospitals with up to 40 clinical variables collected during each hour of the patient's ICU stay.</p>
 <p><strong>Distribution Shift:</strong> We explored multiple domain shifts for this dataset; we note that, in particular, splitting domains by \textit{hospital} did \emph{not} lead to a shift gap for tuned baseline models (although there is a third, held-out hospital that was used in the original challenge for this dataset, it is not publicly available and is not part of the TableShift benchmark). Instead, we use ``length of stay'' as a domain shift variable. We bifurcate the dataset based on how long a patient has been in the ICU, with patients having been in ICU for $\leq 47$ hours in the training domain, and patients having been in ICU more than 47 hours in the test domain. This matches a scenario where a medical model is trained only on observed stays of a fixed duration (no more than two full days), but then used beyond its initial observation window to predict sepsis in patients with longer stays. We note that length of stay of 47 hours corresponds to the 80th percentile of the data for that feature.</p>
-<h1 id="unemployment">Unemployment<a class="headerlink" href="#unemployment" title="Permanent link">¶</a></h1>
+<h2 id="unemployment">Unemployment<a class="headerlink" href="#unemployment" title="Permanent link">¶</a></h2>
 <ul>
 <li>Availability: Public</li>
 <li>Source: American Community Survey (via folktables)</li>
@@ -300,6 +307,112 @@ algorithms for the early detection of sepsis from clinical data. The dataset is 
 <p><strong>Background:</strong> Unemployment is a key macroeconomic indicator and a measure of individual well-being. Unemployment is also linked to a variety of adverse outcomes, including socioeconomic, psychological, and health impacts \cite{bambra2009welfare, cable2008effect, blakely2003unemployment, montgomery1996health}.</p>
 <p><strong>Data Source:</strong> We use person-level data from the American Community Survey (ACS), as described in Task \ref{task:food-stamps}. However, for this task, we filter the data to include only individuals over the age of 18 and below the age of 62 (at which age persons in the United States are eligible to receive Social Security income).</p>
 <p><strong>Distribution Shift:</strong> Many factors are known to be related to unemployment. We focus on a form of subpopulation shift, and use \textit{education level} as the domain split. We use individuals with educational attainment of GED (high school diploma equivalent) or higher as the training population $\Dtr$, and individuals without high school-level education as $\Dte$. This simulates a survey collection with a biased sample that systematically excludes such persons.</p>
+<h1 id="accessing-the-datasets">Accessing The Datasets<a class="headerlink" href="#accessing-the-datasets" title="Permanent link">¶</a></h1>
+<p>All datasets in TableShift are either public, or have open credentialized access (for example, when human subjects training or a data use agreement is required to access the data). Most of the datasets (10 of the 15) are public. </p>
+<p>The table below summarizes how to gain access to each dataset. Note that datasets marked 'Public' require no action to access; they can be used in TableShift out of the box. For the other datasets, follow the link to gain access.</p>
+<p>Some datasets require downloading files in order to use them in TableShift; the TableShift API will provide instructions on what data is required and where to place the data when you run a caching or training job with that dataset.</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>String Identifier</th>
+<th>Availability</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voting</td>
+<td><code>anes</code></td>
+<td>Data Use Agreement (<a href="https://electionstudies.org">source</a>)</td>
+<td><a href="https://electionstudies.org">American National Election Studies (ANES)</a></td>
+</tr>
+<tr>
+<td>ASSISTments</td>
+<td><code>assistments</code></td>
+<td>Public</td>
+<td><a href="https://www.kaggle.com/datasets/nicolaswattiez/skillbuilder-data-2009-2010">Kaggle</a></td>
+</tr>
+<tr>
+<td>Childhood Lead</td>
+<td><code>nhanes_lead</code></td>
+<td>Public</td>
+<td><a href="https://www.cdc.gov/nchs/nhanes/index.htm">National Health and Nutrition Examination Survey (NHANES)</a></td>
+</tr>
+<tr>
+<td>College Scorecard</td>
+<td><code>college_scorecard</code></td>
+<td>Public</td>
+<td><a href="http://collegescorecard.ed.gov">College Scorecard</a></td>
+</tr>
+<tr>
+<td>Diabetes</td>
+<td><code>brfss_diabetes</code></td>
+<td>Public</td>
+<td><a href="https://www.cdc.gov/brfss/index.html">Behavioral Risk Factor Surveillance System (BRFSS)</a></td>
+</tr>
+<tr>
+<td>Food Stamps</td>
+<td><code>acsfoodstamps</code></td>
+<td>Public</td>
+<td><a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> (via <a href="http://folktables.org">folktables</a></td>
+</tr>
+<tr>
+<td>HELOC</td>
+<td><code>heloc</code></td>
+<td>Data Use Agreement (<a href="https://community.fico.com/s/explainable-machine-learning-challenge">source</a>)</td>
+<td><a href="https://community.fico.com/s/explainable-machine-learning-challenge">FICO</a></td>
+</tr>
+<tr>
+<td>Hospital Readmission</td>
+<td><code>diabetes_readmission</code></td>
+<td>Public</td>
+<td><a href="https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008">UCI</a></td>
+</tr>
+<tr>
+<td>Hypertension</td>
+<td><code>brfss_blood_pressure</code></td>
+<td>Public</td>
+<td><a href="https://www.cdc.gov/brfss/index.html">Behavioral Risk Factor Surveillance System (BRFSS)</a></td>
+</tr>
+<tr>
+<td>ICU Length of Stay</td>
+<td><code>mimic_extract_los_3</code></td>
+<td>Data Use Agreement (<a href="https://mimic.mit.edu/docs/gettingstarted/">source</a>)</td>
+<td><a href="https://physionet.org/content/mimiciii/">MIMIC-iii</a> via <a href="https://github.com/MLforHealth/MIMIC_Extract">MIMIC-Extract</a></td>
+</tr>
+<tr>
+<td>ICU Mortality</td>
+<td><code>mimic_extract_mort_hosp</code></td>
+<td>Data Use Agreement (<a href="https://mimic.mit.edu/docs/gettingstarted/">source</a>)</td>
+<td><a href="https://physionet.org/content/mimiciii/">MIMIC-iii</a> via <a href="https://github.com/MLforHealth/MIMIC_Extract">MIMIC-Extract</a></td>
+</tr>
+<tr>
+<td>Income</td>
+<td><code>acsincome</code></td>
+<td>Public</td>
+<td><a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> (via <a href="http://folktables.org">folktables</a></td>
+</tr>
+<tr>
+<td>Public Health Insurance</td>
+<td><code>acspubcov</code></td>
+<td>Public</td>
+<td><a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> (via <a href="http://folktables.org">folktables</a></td>
+</tr>
+<tr>
+<td>Sepsis</td>
+<td><code>physionet</code></td>
+<td>Public</td>
+<td><a href="https://physionet.org/content/challenge-2019/">Physionet</a></td>
+</tr>
+<tr>
+<td>Unemployment</td>
+<td><code>acsunemployment</code></td>
+<td>Public</td>
+<td><a href="https://www.census.gov/programs-surveys/acs">American Community Survey</a> (via <a href="http://folktables.org">folktables</a></td>
+</tr>
+</tbody>
+</table>
             
 
 
