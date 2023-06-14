@@ -2,7 +2,7 @@ Title: Quickstart
 page-order: 2
 
 # Quickstart
-This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository.
+This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository [here](https://github.com/mlfoundations/tableshift/tree/main/examples).
 
 ## 1. Environment Setup
 We recommend using the Conda environment in the TableShift github repo. You can create an environment with all dependencies required via
