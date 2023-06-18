@@ -7,7 +7,9 @@ This page provides simple examples to get started accessing data and training mo
 ## 1. Environment Setup
 We recommend using the Conda environment in the TableShift github repo. You can create an environment with all dependencies required via
 
-```conda env create -f environment.yml```
+```
+conda env create -f environment.yml
+```
 
 where environment.yml can be changed to point to the location of the file at the root of the TableShift git repo.
 
@@ -18,7 +20,9 @@ Once the conda environment is created, activate it with
 ## 2. Model Training
 TableShift includes implementations of 19 different models (described in the paper and in detail here). To train a model on a publicly-available dataset, you can you the example script provided in the examples directory:
 
-```python examples/run_expt.py --experiment diabetes_readmission --model xgb```
+```
+python examples/run_expt.py --experiment diabetes_readmission --model xgb
+```
 
 That's it!
 

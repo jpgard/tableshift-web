@@ -82,24 +82,29 @@
 <p>This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository <a href="https://github.com/mlfoundations/tableshift/tree/main/examples">here</a>.</p>
 <h2 id="1-environment-setup">1. Environment Setup<a class="headerlink" href="#1-environment-setup" title="Permanent link">&para;</a></h2>
 <p>We recommend using the Conda environment in the TableShift github repo. You can create an environment with all dependencies required via</p>
-<p><code>conda env create -f environment.yml</code></p>
+<div class="highlight"><pre><span></span><code>conda env create -f environment.yml
+</code></pre></div>
+
 <p>where environment.yml can be changed to point to the location of the file at the root of the TableShift git repo.</p>
 <p>Once the conda environment is created, activate it with</p>
 <p><code>conda activate tableshift</code></p>
 <h2 id="2-model-training">2. Model Training<a class="headerlink" href="#2-model-training" title="Permanent link">&para;</a></h2>
 <p>TableShift includes implementations of 19 different models (described in the paper and in detail here). To train a model on a publicly-available dataset, you can you the example script provided in the examples directory:</p>
-<p><code>python examples/run_expt.py --experiment diabetes_readmission --model xgb</code></p>
+<div class="highlight"><pre><span></span><code>python examples/run_expt.py --experiment diabetes_readmission --model xgb
+</code></pre></div>
+
 <p>That's it!</p>
 <h2 id="3-optionaladvanced-usage-distributed-hyperparameter-tuning-with-ray">3. [Optional/Advanced Usage] Distributed hyperparameter tuning with Ray<a class="headerlink" href="#3-optionaladvanced-usage-distributed-hyperparameter-tuning-with-ray" title="Permanent link">&para;</a></h2>
 <p>If you would like to run distributed hyperparameter tuning with Ray, you can run</p>
-<pre><code>ulimit -u 127590 &amp;&amp; python scripts/ray_train.py \ 
+<div class="highlight"><pre><span></span><code>ulimit -u 127590 &amp;&amp; python scripts/ray_train.py \ 
     --experiment adult \ 
     --num_samples 2 \ 
     --num_workers 1 \ 
     --cpu_per_worker 4 \ 
     --use_cached \ 
     --models xgb
-</code></pre>
+</code></pre></div>
+
 <p>Please note that Ray can require careful tuning based on your system resources for optimal performance. For more information, check the Ray Tune documentation.</p>
             
 
