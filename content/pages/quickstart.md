@@ -15,7 +15,9 @@ where environment.yml can be changed to point to the location of the file at the
 
 Once the conda environment is created, activate it with
 
-```conda activate tableshift```
+```
+conda activate tableshift
+```
 
 ## 2. Model Training
 TableShift includes implementations of 19 different models (described in the paper and in detail here). To train a model on a publicly-available dataset, you can you the example script provided in the examples directory:

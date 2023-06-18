@@ -87,7 +87,9 @@
 
 <p>where environment.yml can be changed to point to the location of the file at the root of the TableShift git repo.</p>
 <p>Once the conda environment is created, activate it with</p>
-<p><code>conda activate tableshift</code></p>
+<div class="highlight"><pre><span></span><code>conda activate tableshift
+</code></pre></div>
+
 <h2 id="2-model-training">2. Model Training<a class="headerlink" href="#2-model-training" title="Permanent link">&para;</a></h2>
 <p>TableShift includes implementations of 19 different models (described in the paper and in detail here). To train a model on a publicly-available dataset, you can you the example script provided in the examples directory:</p>
 <div class="highlight"><pre><span></span><code>python examples/run_expt.py --experiment diabetes_readmission --model xgb

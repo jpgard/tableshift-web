@@ -1,3 +1,5 @@
+
+
 /* For highlighting lines in code snippets */
 .highlight span.hll span {
   background-color: black;
@@ -11,13 +13,14 @@ div.highlight {
 td.code div.highlight {
   border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
 }
-/*pre {
+pre {
   overflow: auto;
   white-space: pre;
   word-break: normal;
   word-wrap: normal;
   color: #ebdbb2; /* This is needed due to bug in Pygments. It does not wraps some part of the code of some lagauges, like reST. This is for fallback. */
-}*/
+}
+
 /* liquid_tags.include_code */
 figure.code {
   margin: 0;
