@@ -1,4 +1,4 @@
-To run an example server locally:
+To run an example server locally, first activate the python virtual environment, then run:
 
 ``` 
 make devserver
