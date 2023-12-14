@@ -17,11 +17,11 @@
 
 <meta property="og:title" content="Quickstart "/>
 <meta property="og:url" content="https://jpgard.github.io/tableshift-web/quickstart.html" />
-<meta property="og:description" content="Quickstart¶ This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository here. 1. Environment Setup¶ We recommend using the Conda environment in the TableShift …" />
+<meta property="og:description" content="Quickstart¶ This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository here. 1. Environment Setup¶ We recommend using our prebuilt docker environment as a …" />
 <meta property="og:site_name" content="TableShift" />
 <meta property="og:article:author" content="Josh Gardner" />
 <meta name="twitter:title" content="Quickstart ">
-<meta name="twitter:description" content="Quickstart¶ This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository here. 1. Environment Setup¶ We recommend using the Conda environment in the TableShift …">
+<meta name="twitter:description" content="Quickstart¶ This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository here. 1. Environment Setup¶ We recommend using our prebuilt docker environment as a …">
 
         <title>Quickstart  · TableShift
 </title>
@@ -81,13 +81,34 @@
             <h1 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h1>
 <p>This page provides simple examples to get started accessing data and training models with TableShift. If you would like to set up customized experiments or run experiments at scale, check the examples in our github repository <a href="https://github.com/mlfoundations/tableshift/tree/main/examples">here</a>.</p>
 <h2 id="1-environment-setup">1. Environment Setup<a class="headerlink" href="#1-environment-setup" title="Permanent link">&para;</a></h2>
-<p>We recommend using the Conda environment in the TableShift github repo. You can create an environment with all dependencies required via</p>
-<div class="highlight"><pre><span></span><code>conda env create -f environment.yml
+<p>We recommend using our prebuilt docker environment as a starting point, due to the complex dependencies required to support the many tabular data models available in TableShift. You can fetch a prebuilt Docker image via</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># fetch the docker image</span>
+docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/jpgard/tableshift:latest
+
+<span class="c1"># run it to test your setup; this automatically launches examples/run_expt.py</span>
+docker<span class="w"> </span>run<span class="w"> </span>ghcr.io/jpgard/tableshift:latest<span class="w"> </span>--model<span class="w"> </span>xgb
+
+<span class="c1"># optionally, use the container interactively</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="o">=</span>/bin/bash<span class="w"> </span>ghcr.io/jpgard/tableshift:latest
 </code></pre></div>
 
-<p>where environment.yml can be changed to point to the location of the file at the root of the TableShift git repo.</p>
-<p>Once the conda environment is created, activate it with</p>
-<div class="highlight"><pre><span></span><code>conda activate tableshift
+<p>You can change the <code>entrypoint</code> in the above code to <code>/usr/local/bin/python</code> to directly enter a Python interpreter and run Python code. For example, the block below loads a dataset for model training:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># To run Python code using the Docker environment from above, run:</span>
+<span class="c1"># docker run -it --entrypoint=/usr/local/bin/python ghcr.io/jpgard/tableshift:latest</span>
+
+<span class="kn">from</span> <span class="nn">tableshift</span> <span class="kn">import</span> <span class="n">get_dataset</span>
+
+<span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">&quot;diabetes_readmission&quot;</span>
+<span class="n">dset</span> <span class="o">=</span> <span class="n">get_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">)</span>
+
+<span class="c1"># Fetch a pandas DataFrame of the training set</span>
+<span class="n">X_tr</span><span class="p">,</span> <span class="n">y_tr</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">get_pandas</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fetch and use a pytorch DataLoader</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">get_dataloader</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+    <span class="o">...</span>
 </code></pre></div>
 
 <h2 id="2-model-training">2. Model Training<a class="headerlink" href="#2-model-training" title="Permanent link">&para;</a></h2>
@@ -96,8 +117,13 @@
 </code></pre></div>
 
 <p>That's it!</p>
-<h2 id="3-optionaladvanced-usage-distributed-hyperparameter-tuning-with-ray">3. [Optional/Advanced Usage] Distributed hyperparameter tuning with Ray<a class="headerlink" href="#3-optionaladvanced-usage-distributed-hyperparameter-tuning-with-ray" title="Permanent link">&para;</a></h2>
-<p>If you would like to run distributed hyperparameter tuning with Ray, you can run</p>
+<h2 id="3-optional-and-advanced-usage">3. Optional and Advanced Usage<a class="headerlink" href="#3-optional-and-advanced-usage" title="Permanent link">&para;</a></h2>
+<p>This section outlines some advanced use cases: benchmarking your own models, running distributed hyperparameter tuning of the models available in TableShift, or (an experimental/not-officially-supported feature) using your own datasets in TableShift.</p>
+<h3 id="benchmarking-your-own-models">Benchmarking Your Own Models<a class="headerlink" href="#benchmarking-your-own-models" title="Permanent link">&para;</a></h3>
+<p>Training with your own models should be managed in your own scripts (but <code>examples/run_expt.py</code> is a good starting point). All you need is a few lines of Python code to access the TableShift data in Pandas, Torch, or Ray format (see the example above) to train your model.</p>
+<h3 id="distributed-hyperparameter-tuning-with-ray">Distributed hyperparameter tuning with Ray<a class="headerlink" href="#distributed-hyperparameter-tuning-with-ray" title="Permanent link">&para;</a></h3>
+<p>We recommend tuning the hyperparameters of any method in order to fairly evaluate its performance on the tasks in TableShift.</p>
+<p>If you would like to run distributed hyperparameter tuning with Ray on one of the available models, you can run</p>
 <div class="highlight"><pre><span></span><code>ulimit -u 127590 &amp;&amp; python scripts/ray_train.py \ 
     --experiment adult \ 
     --num_samples 2 \ 
@@ -108,6 +134,11 @@
 </code></pre></div>
 
 <p>Please note that Ray can require careful tuning based on your system resources for optimal performance. For more information, check the Ray Tune documentation.</p>
+<h3 id="using-your-own-datasets">Using Your Own Datasets<a class="headerlink" href="#using-your-own-datasets" title="Permanent link">&para;</a></h3>
+<p>The TableShift package is designed to support the benchmark datasets only. However, some users have expressed interest in "bringing their own data". To do this, you'll need to make the following changes to the TableShift Python source:
+* Add a <code>DataSource</code> for your dataset in <code>tableshift/core/data_source.py</code>. The <code>DataSource</code> specifies how to fetch a dataset and how to check if it is cached locally.
+* Add an <code>ExperimentConfig</code> in <code>tableshift/configs/non_benchmark_configs.py</code>. An <code>ExperimentConfig</code> defines how the data is split (i.e. the ID and OOD partitions) and optional grouping based on sensitive attributes.
+* Add a <code>TaskConfig</code> for the dataset. A <code>TaskConfig</code> defines the features, data types, and any preprocessing for a dataset. </p>
             
 
 

@@ -27,4 +27,13 @@ We are open to contributions of high-quality datasets that meet the criteria lis
 
 ## How can I cite the TableShift benchmark?
 
-Please cite our paper (citation coming soon here!).
+Please cite our paper:
+
+```
+@article{gardner2023tableshift,
+  title={Benchmarking Distribution Shift in Tabular Data with TableShift},
+  author={Gardner, Josh and Popovic, Zoran and Schmidt, Ludwig},
+  journal={Advances in Neural Information Processing Systems},
+  year={2023}
+}
+```

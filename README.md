@@ -1,4 +1,4 @@
-To run an example server locally, first activate the python virtual environment, then run:
+To run an example server locally, first activate the python virtual environment with `source tableshift-web/bin/activate`, then run:
 
 ``` 
 make devserver

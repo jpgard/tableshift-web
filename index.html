@@ -17,11 +17,11 @@
 
 <meta property="og:title" content="TableShift "/>
 <meta property="og:url" content="https://jpgard.github.io/tableshift-web/index.html" />
-<meta property="og:description" content="TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. This site provides example commands to get started using TableShift in the Quickstart, and provides more detailed information about the datasets available in TableShift in Datasets. If you find an issue with TableShift …" />
+<meta property="og:description" content="TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. The TableShift Python package contains: An API providing unified access to 15 benchmark datasets with predefined real-world domain splits in only a few lines of Python code. Utilities for loading the datasets in …" />
 <meta property="og:site_name" content="TableShift" />
 <meta property="og:article:author" content="Josh Gardner" />
 <meta name="twitter:title" content="TableShift ">
-<meta name="twitter:description" content="TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. This site provides example commands to get started using TableShift in the Quickstart, and provides more detailed information about the datasets available in TableShift in Datasets. If you find an issue with TableShift …">
+<meta name="twitter:description" content="TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift. The TableShift Python package contains: An API providing unified access to 15 benchmark datasets with predefined real-world domain splits in only a few lines of Python code. Utilities for loading the datasets in …">
 
         <title>TableShift  · TableShift
 </title>
@@ -80,9 +80,50 @@
 
             <p><img alt="Tableshift Logo" src="https://jpgard.github.io/tableshift-web/images/tableshift.png" /></p>
 <p>TableShift is a benchmark and associated Python library for machine learning with tabular data under distribution shift.</p>
-<p>This site provides example commands to get started using TableShift in the Quickstart, and provides more detailed information about the datasets available in TableShift in Datasets.</p>
+<p>The TableShift Python package contains:</p>
+<ol>
+<li>An API providing unified access to 15 benchmark datasets with predefined real-world domain splits in only a few lines of Python code.</li>
+<li>Utilities for loading the datasets in a variety of widely-used formats for tabular data modeling, including as Pandas DataFrames, Torch DataLoaders, and Ray Datasets.</li>
+<li>Tools for applying common tabular preprocessing tasks such as normalization and categorical value encoding.</li>
+</ol>
+<p>Additionally, the TableShift <a href="https://github.com/mlfoundations/tableshift">repo</a> contains implementations of a variety of tabular data models, including scripts for training, evaluation, and hyperparameter tuning.</p>
+<p>To get started with TableShift by running the pre-built Docker image:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># fetch the docker image</span>
+docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/jpgard/tableshift:latest
+
+<span class="c1"># run it to test your setup; this automatically launches examples/run_expt.py</span>
+docker<span class="w"> </span>run<span class="w"> </span>ghcr.io/jpgard/tableshift:latest<span class="w"> </span>--model<span class="w"> </span>xgb
+</code></pre></div>
+
+<p>The Docker image is useful for reproducing TableShift experiments and checking your setup. However, it's likely that you'll also want to develop your own models.</p>
+<p>Below we show an example of how to access a TableShift dataset for model training:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># To run this Python code using the Docker environment from above, run:</span>
+<span class="c1"># docker run -it --entrypoint=/usr/local/bin/python ghcr.io/jpgard/tableshift:latest</span>
+
+<span class="kn">from</span> <span class="nn">tableshift</span> <span class="kn">import</span> <span class="n">get_dataset</span>
+
+<span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">&quot;diabetes_readmission&quot;</span>
+<span class="n">dset</span> <span class="o">=</span> <span class="n">get_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">)</span>
+
+<span class="c1"># Fetch a pandas DataFrame of the training set</span>
+<span class="n">X_tr</span><span class="p">,</span> <span class="n">y_tr</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">get_pandas</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fetch and use a pytorch DataLoader</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">get_dataloader</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div>
+
 <p>If you find an issue with TableShift, please file a GitHub issue in the project <a href="https://github.com/mlfoundations/tableshift">repo</a>.</p>
 <p>If you find this site or the TableShift software useful, please cite our paper.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@article</span><span class="err">{</span><span class="n">gardner2023tableshift</span><span class="p">,</span>
+<span class="w">  </span><span class="n">title</span><span class="o">=</span><span class="err">{</span><span class="n">Benchmarking</span><span class="w"> </span><span class="n">Distribution</span><span class="w"> </span><span class="n">Shift</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">Tabular</span><span class="w"> </span><span class="k">Data</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">TableShift</span><span class="err">}</span><span class="p">,</span>
+<span class="w">  </span><span class="n">author</span><span class="o">=</span><span class="err">{</span><span class="n">Gardner</span><span class="p">,</span><span class="w"> </span><span class="n">Josh</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Popovic</span><span class="p">,</span><span class="w"> </span><span class="n">Zoran</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Schmidt</span><span class="p">,</span><span class="w"> </span><span class="n">Ludwig</span><span class="err">}</span><span class="p">,</span>
+<span class="w">  </span><span class="n">journal</span><span class="o">=</span><span class="err">{</span><span class="n">Advances</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">Neural</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="n">Processing</span><span class="w"> </span><span class="n">Systems</span><span class="err">}</span><span class="p">,</span>
+<span class="w">  </span><span class="nf">year</span><span class="o">=</span><span class="err">{</span><span class="mi">2023</span><span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
             
 
 

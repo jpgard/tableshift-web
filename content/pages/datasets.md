@@ -5,7 +5,7 @@ page-order: 3
 
 This page describes the benchmark datasets available in TableShift and how to access them.
 
-To see a detailed list of the individual features for each dataset, please refer to the `tableshift.datasets` module [source](https://github.com/mlfoundations/tableshift).
+To see a detailed list of the individual features for each dataset, please refer to the `tableshift.datasets` module [source](https://github.com/mlfoundations/tableshift). The source code for each dataset also links to the documentation for each dataset (which can also be accesssed as the `feature_list.documentation` attribute of any `TabularDataset`).
 
 To read more about accessing a public credentialized benchmark dataset, see the "Availability & Access" instructions for that dataset, or scroll to the bottom of this page for a summary.
 
